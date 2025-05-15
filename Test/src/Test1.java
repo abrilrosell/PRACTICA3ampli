@@ -1,9 +1,13 @@
+import Property.SimpleTask;
+import model.CostChanged;
 import org.junit.jupiter.api.Test;
+
 import java.math.BigDecimal;
 import java.util.Observable;
 import java.util.Observer;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 
 public class SimpleTaskTest {
 

@@ -1,5 +1,7 @@
 package Property;
 
+import model.Task;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.math.BigDecimal;

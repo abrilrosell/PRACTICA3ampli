@@ -1,4 +1,6 @@
-import Property.SimpleTask;
+package Property;
+
+import model.Task;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -68,3 +70,4 @@ public class CompositeTask extends Task implements PropertyChangeListener {
         changeSupport.removePropertyChangeListener(listener);
     }
 }
+

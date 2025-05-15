@@ -1,5 +1,8 @@
 package ObserverAndObservable;
 
+import model.CostChanged;
+import model.Task;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Observer;

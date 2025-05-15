@@ -1,11 +1,14 @@
-import ObserverAndObservable.SimpleTaskObs;
+package ObserverAndObservable;
 
-import java.util.Observer;
-import java.util.Observable;
+import model.CostChanged;
+import model.Task;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
 public class CompositeTaskObs extends Task implements Observer {
     private final List<Task> subtasks; // Llista de tasques (simples o compostes) que componen aquesta
