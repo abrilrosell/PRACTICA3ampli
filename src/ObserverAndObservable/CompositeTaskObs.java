@@ -17,7 +17,7 @@ public class CompositeTaskObs extends Task implements Observer {
 
     // Constructor: rep una llista de subtasques i en fa una còpia privada
     public CompositeTaskObs(List<Task> subtasks) {
-        super(BigDecimal.ZERO);
+        super(BigDecimal.ONE);
         this.subtasks = new ArrayList<>(subtasks); // Fem còpia per protegir l’estat intern
         subscribeToSubtasks(); // Ens registrem com a observadors de les subtasques
         recalculateCost(); // Calculem el cost inicial sumant les subtasques
@@ -55,10 +55,11 @@ public class CompositeTaskObs extends Task implements Observer {
 
             // Si el nou cost és diferent, notifiquem la tasca que ens conté (si n’hi ha)
             if (!old.equals(this.cost)) {
-                notifyParent();
+                notifyParent(old, this.cost); //
             }
         }
     }
+
 
     // Ens permet registrar un observador (una tasca superior o GUI)
     public void addObserver(Observer o) {
@@ -66,9 +67,10 @@ public class CompositeTaskObs extends Task implements Observer {
     }
 
     // Si tenim una tasca superior registrada, l’informem que el nostre cost ha canviat
-    private void notifyParent() {
+    private void notifyParent(BigDecimal oldCost, BigDecimal newCost) {
         if (parent != null) {
-            parent.update(null, new CostChanged(null, this.cost));
+            // Notifiquem el pare amb el cost anterior i el nou per tal que pugui reaccionar correctament
+            parent.update(null, new CostChanged(oldCost, newCost));
         }
     }
 }

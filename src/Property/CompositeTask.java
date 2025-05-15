@@ -20,7 +20,7 @@ public class CompositeTask extends Task implements PropertyChangeListener {
 
     // Constructor: rep la llista de subtasques i fa una còpia privada
     public CompositeTask(List<Task> subtasks) {
-        super(BigDecimal.ZERO);
+        super(BigDecimal.ONE);
         this.subtasks = new ArrayList<>(subtasks); // Còpia per protegir l’estat intern
         subscribeToSubtasks(); // Ens registrem com a observadors de les subtasques
         recalculateCost(); // Calculem el cost inicial sumant les subtasques
@@ -41,7 +41,7 @@ public class CompositeTask extends Task implements PropertyChangeListener {
 
     // Recalcula el cost total sumant el cost actual de totes les subtasques
     private void recalculateCost() {
-        BigDecimal total = BigDecimal.ZERO;
+        BigDecimal total = BigDecimal.ZERO; //  Cost real inicialitzat a 0
         for (int i = 0; i < subtasks.size(); i++) {
             Task t = subtasks.get(i);
             total = total.add(t.costInEuros());
