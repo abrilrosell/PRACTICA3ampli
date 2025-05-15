@@ -19,16 +19,16 @@ public class SimpleTask extends Task {
 
     // Mètode per canviar el cost de la tasca
     public void changeCost(BigDecimal newCost) {
-        BigDecimal formatted = newCost.setScale(2, BigDecimal.ROUND_HALF_UP);
-        if (formatted.signum() <= 0) {
+        BigDecimal roundedCost = newCost.setScale(2, BigDecimal.ROUND_HALF_UP);
+        if (roundedCost.signum() <= 0) {
             throw new IllegalArgumentException("Cost must be positive");
         }
 
         // Només fem el canvi si el nou cost és diferent
-        if (!this.cost.equals(formatted)) {
+        if (!this.cost.equals(roundedCost)) {
             BigDecimal oldCost = this.cost;
-            this.cost = formatted;
-            changeSupport.firePropertyChange("cost", oldCost, formatted); // Notifiquem els observadors del canvi de cost
+            this.cost = roundedCost;
+            changeSupport.firePropertyChange("cost", oldCost, roundedCost); // Notifiquem els observadors del canvi de cost
         }
     }
 

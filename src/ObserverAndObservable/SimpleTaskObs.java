@@ -19,18 +19,18 @@ public class SimpleTaskObs extends Task {
 
     // Mètode per canviar el cost de la tasca
     public void changeCost(BigDecimal newCost) {
-        BigDecimal formatted = newCost.setScale(2, RoundingMode.HALF_UP); // Normalitzem el nou cost a 2 decimals amb arrodoniment
-        if (formatted.signum() <= 0) {
+        BigDecimal roundedCost = newCost.setScale(2, RoundingMode.HALF_UP); // Normalitzem el nou cost a 2 decimals amb arrodoniment
+        if (roundedCost.signum() <= 0) {
             throw new IllegalArgumentException("Cost must be positive");
         }
 
         // Només actualitzem si el cost realment ha canviat
-        if (!this.cost.equals(formatted)) {
+        if (!this.cost.equals(roundedCost)) {
             BigDecimal oldCost = this.cost;
-            this.cost = formatted;
+            this.cost = roundedCost;
             // Marquem com a canviat i notifiquem a l’observador
             setChanged();
-            notifyObservers(new CostChanged(oldCost, formatted));
+            notifyObservers(new CostChanged(oldCost, roundedCost));
         }
     }
 
