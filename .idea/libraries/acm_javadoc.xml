@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="acm-javadoc">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../SEGON/PROGRAMACIÓ II/llibreries/acm.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../../../SEGON/PROGRAMACIÓ II/llibreries/acm-javadoc.zip!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../../../SEGON/PROGRAMACIÓ II/llibreries/acm-src.zip!/src" />
+    </SOURCES>
+  </library>
+</component>
